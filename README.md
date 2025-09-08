@@ -25,7 +25,7 @@ MoodTracker is a comprehensive and modern personal wellness management system de
 
 This platform empowers users to seamlessly register, log daily mood entries, visualize their wellness patterns through beautiful charts, and gain insights into their mental health journey — all while maintaining complete privacy and security. The application features a clean dashboard where users can monitor their progress, view detailed analytics, and build better wellness habits.
 
-**Demo:** https://your-mood-tracker.vercel.app/
+**LLve:** https://moodtracker-pi.vercel.app/
 
 ## ⚙️ Tech Stack
 - **Frontend Framework**: Next.js 15 with TypeScript
