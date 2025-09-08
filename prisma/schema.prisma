@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -12,12 +12,15 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   entries   Entry[]
+
+  @@map("users")
 }
 
 model Entry {
   id         String   @id @default(cuid())
-  date       DateTime @default(now())
+  date       String
   sleep      Float    // Hours of sleep
   stress     Int      // 1-10 scale
   symptoms   Int      // 1-10 scale
