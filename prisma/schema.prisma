@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  entries   Entry[]
+}
+
+model Entry {
+  id         String   @id @default(cuid())
+  date       DateTime @default(now())
+  sleep      Float    // Hours of sleep
+  stress     Int      // 1-10 scale
+  symptoms   Int      // 1-10 scale
+  mood       Int      // 1-10 scale
+  engagement Int      // 1-10 scale
+  drugs      String?  // Optional drug names
+  notes      String?  // Optional notes
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("entries")
+}
